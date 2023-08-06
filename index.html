@@ -1,19 +1,163 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
 
-    <script src="./libraries/p5.min.js"></script>
+<head>
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+  <style>
+    html {
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
 
-    <!-- <script src="./apple.js"></script> -->
-    <!-- <script src="./banana.js"></script> -->
-    <!-- <script src="./kiwi.js"></script> -->
-    <!-- <script src="./lemon.js"></script> -->
-    <script src="./melon.js"></script>
-    <!-- <script src="./orange.js"></script> -->
-    <script src="./libraries/parametricWallpaper.bundle.js"></script>
-  </head>
-  <body>
-  </body>
+    body {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      flex-direction: column;
+      flex: 0 0 100%;
+    }
+
+    header {
+      display: flex;
+      padding: 5px 10px;
+      color: black;
+      background-color: bisque;
+      border-bottom: 5px solid black;
+    }
+
+
+    header ul {
+      display: flex;
+      flex-flow: row;
+    }
+
+    header ul li {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 40px;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    header ul li:hover {
+      color: white;
+      cursor: pointer;
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+    }
+
+    nav {
+      display: flex;
+      padding: 5px 10px;
+      color: black;
+      background-color: bisque;
+      border-bottom: 5px solid black;
+    }
+
+    nav ul {
+      display: flex;
+      flex-flow: row;
+    }
+
+    nav ul li {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 40px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    nav ul li label {
+      padding-bottom: 20px;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      /* Override default CSS styles */
+      appearance: none;
+      width: 100%;
+      /* Full-width */
+      height: 50ppx;
+      /* Specified height */
+      background: #d3d3d3;
+      /* Grey background */
+      outline: none;
+      /* Remove outline */
+      opacity: 0.7;
+      /* Set transparency (for mouse-over effects on hover) */
+      -webkit-transition: .2s;
+      /* 0.2 seconds transition on hover */
+      transition: opacity .2s;
+    }
+
+    input[type="checkbox"] {
+      margin-left: 20px;
+      width: auto;
+      height: auto;
+      transform: scale(4);
+    }
+
+    input[type="number"]{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 40px;
+      width: 150px;
+      height: 50px;
+    }
+
+    main {
+      display: flex;
+    }
+  </style>
+
+  <script src="./libraries/p5.min.js"></script>
+  <!-- <script src="./pomegranate.js"></script> -->
+  <script src="./fruits.js"></script>
+  <script src="./libraries/parametricWallpaper.bundle.js"></script>
+</head>
+
+<body>
+  <header>
+
+    <ul style="list-style: none;">
+      <li onclick="display(this)" value="apple">Wisdom</li>
+      <li onclick="display(this)" value="banana">Energy</li>
+      <li onclick="display(this)" value="kiwi">Wildlife</li>
+      <li onclick="display(this)" value="lemon">Friendship</li>
+      <li onclick="display(this)" value="melon">Love</li>
+      <li onclick="display(this)" value="orange">Positivity</li>
+      <li onclick="display(this)" value="peach">Purity</li>
+      <li onclick="display(this)" value="pear">Femininity</li>
+      <li onclick="display(this)" value="pomegranate">Fertility</li>
+    </ul>
+  </header>
+  <nav>
+    <ul>
+      <li>
+        <label>Outline</label>
+        <input type="checkbox" id="myCheck" onchange="update(this.value, 'outline')">
+      </li>
+
+      <li>
+        <label>Opacity (0 - 255)</label>
+        <input type="range" min="0" max="255" value="255" id="opacity" onchange="update(parseFloat(this.value), 'opacity')">
+      </li>
+
+      <li>
+        <label>Size (1 = 100%)</label>
+        <input type="number" value="1" step="1" id="size" onchange="update(parseFloat(this.value), 'size')">
+      </li>
+
+      <li>
+        <label>Angle</label>
+        <input type="number" value="0" step="1" id="angle" onchange="update(parseFloat(this.value), 'angle')">
+      </li>
+    </ul>
+  </nav>
+</body>
 </html>

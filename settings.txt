@@ -1,53 +1,129 @@
-You will need to fill out this file for hand in. 
-The bellow is just an example, feel free to disregard this documents contents.
+// parameters values 
+let size = 1
+let angle = 0
+let outline = false
+let opacity = 255
 
+// density parapeters 
+let cell_width = 250
+let cell_height = 250
+let row_offset = 50
 
-Your final settings.txt will look something like this when you are finished:
+// colours 
+let darkpink = [158, 56, 56, opacity]
+let lightPink = [232, 204, 188, opacity]
+let brownColour = [89, 82, 70, opacity]
+let greenColour = [66, 94, 72, opacity]
+let skyblueColour = [197, 215, 255, opacity]
 
-/////////////////////////////////
+let blackColour = [0, 0, 0, opacity]
+let yellowColour = [236, 200, 43, opacity]
+let vanillaColour = [252, 242, 197, opacity]
 
-Wallpaper 1:
+let whiteColour = [255, 255, 255, opacity]
+let kiwiBrownColour = [140, 78, 71, opacity]
+let kiwiGreenColour = [145, 137, 1, opacity]
 
-//your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
-let paramter1 = 10;
-let paramter2 = true;
-let paramter3 = 50; 
-let paramter4 = 0; 
-let paramter5 = 60;
+let darkYellowColour = [242, 183, 5, opacity]
+let lightYellowColour = [255, 255, 182, opacity]
 
-function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
-  pWallpaper.show_guide(false); //set this to false when you're ready to print
+let orangeGreenColour = [87, 101, 50, Math.min(60, opacity)]
+let orangeColour = [244, 110, 57, Math.min(60, opacity)]
+let lightorangeColour = [242, 162, 12, Math.min(60, opacity)]
 
-  //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 50;
+let peachColour = [242, 112, 82, opacity]
+let pinkColour = [237, 223, 218, opacity]
+let blueColour = [122, 191, 172, opacity]
+
+let beigeColour = [208, 193, 161, opacity]
+let softbrownColour = [170, 140, 90, opacity]
+let pearGreenColour = [139, 140, 90, opacity]
+
+let darkredColour = [115, 18, 18, opacity]
+let redColour = [140, 28, 28, opacity]
+let greyColour = [242, 242, 242, opacity]
+let pomegranatePinkColour = [247, 205, 202, opacity]
+let lightpinkColour = [250, 232, 232, opacity]
+
+// -------------MAIN FUNCTIONS-----------------
+let fruitName = false
+
+function display(elm) {
+    fruitName = elm.getAttribute('value')
+    redraw()
 }
 
-/////////////////////////////////
+function update(value, parameter) {
+    if (parameter == 'size') {
+        size = value
+    } else if (parameter == 'opacity') {
+        opacity = value
+        updateColours(opacity)
+    } else if (parameter == 'angle') {
+        angle = value
+    } else if (parameter == 'width') {
+        cell_width = value
+    } else if (parameter == 'height') {
+        cell_height = value
+    } else if (parameter == 'offset') {
+        row_offset = value
+    } else if (parameter == 'outline') {
+        var checkBox = document.getElementById("myCheck")
+        if (checkBox.checked == true) {
+            outline = true
+        } else {
+            outline = false
+        }
+    }
+    redraw()
+}
 
-Wallpaper 2:
+function updateColours(opacity) {
+    // colours 
+    darkpink = [158, 56, 56, opacity]
+    lightPink = [232, 204, 188, opacity]
+    brownColour = [89, 82, 70, opacity]
+    greenColour = [66, 94, 72, opacity]
+    skyblueColour = [197, 215, 255, opacity]
 
-//your parameter variables go here!
-let rect_width  = 10;
-let rect_height = 10;
-let paramter1 = 20;
-let paramter2 = false;
-let paramter3 = 50; 
-let paramter4 = 80; 
-let paramter5 = 30;
+    blackColour = [0, 0, 0, opacity]
+    yellowColour = [236, 200, 43, opacity]
+    vanillaColour = [252, 242, 197, opacity]
+
+    whiteColour = [255, 255, 255, opacity]
+    kiwiBrownColour = [140, 78, 71, opacity]
+    kiwiGreenColour = [145, 137, 1, opacity]
+
+    darkYellowColour = [242, 183, 5, opacity]
+    lightYellowColour = [255, 255, 182, opacity]
+
+    orangeGreenColour = [87, 101, 50, Math.min(60, opacity)]
+    orangeColour = [244, 110, 57, Math.min(60, opacity)]
+    lightorangeColour = [242, 162, 12, Math.min(60, opacity)]
+
+    peachColour = [242, 112, 82, opacity]
+    pinkColour = [237, 223, 218, opacity]
+    blueColour = [122, 191, 172, opacity]
+
+    beigeColour = [208, 193, 161, opacity]
+    softbrownColour = [170, 140, 90, opacity]
+    pearGreenColour = [139, 140, 90, opacity]
+
+    darkredColour = [115, 18, 18, opacity]
+    redColour = [140, 28, 28, opacity]
+    greyColour = [242, 242, 242, opacity]
+    pomegranatePinkColour = [247, 205, 202, opacity]
+    lightpinkColour = [250, 232, 232, opacity]
+}
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
-  pWallpaper.show_guide(false); //set this to false when you're ready to print
+    pWallpaper.output_mode(GRID_WALLPAPER)
+    pWallpaper.resolution(NINE_PORTRAIT)
+    pWallpaper.show_guide(false) //set this to false when you're ready to print
 
-  //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 0;
+    //Grid settings
+
+    pWallpaper.grid_settings.cell_width = cell_width
+    pWallpaper.grid_settings.cell_height = cell_height
+    pWallpaper.grid_settings.row_offset = row_offset
 }
